@@ -418,12 +418,12 @@ public class CreateNewick {
         };
         final File file = new File("/home/alext/Documents/Ocular Project/sequencing/HCE/tree/data.mle");
         final File treeFile = new File("/home/alext/Documents/Ocular Project/sequencing/HCE/tree/data.tre");
-        final File countDataFile= new File("/home/alext/Documents/Ocular Project/sequencing/HCE/tree/data.dat");
+        final File countDataFile= new File("/home/alext/Documents/Ocular Project/sequencing/HCE/tree/data.new.dat");
         final String countHeader="LABELS\tMales\tFemales\tKeratitis\n" +
                 "COLORS\t#003366\t#CC66FF\t#990000\n";
         try {
             NewickNode newickNode = loadFromGroupFile(file, restrictor, delim);
-            NewickNodeWithCounts newickNodeWithCounts = ((NewickNodeWithCounts) newickNode).cutSelfToThresholdAtLevel(5, 1);
+            NewickNodeWithCounts newickNodeWithCounts = ((NewickNodeWithCounts) newickNode).cutSelfToThresholdAtLevel(5, 0.1);
             //System.out.println(newickNodeWithCounts.toString("","\t"));
             System.out.println(newickNodeWithCounts.toString());
             System.out.println(newickNodeWithCounts.getLeavesCountData());
